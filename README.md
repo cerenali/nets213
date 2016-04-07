@@ -4,6 +4,8 @@
 
 Group members: John Hewitt, Roger Luo, Alice Ren
 
+### Breakdown of Major Components
+
 #### Data Collection (2 points)
 
 In this phase, we will collect our data set from Twitter using the Twitter API, filtering out tweets from verified Twitter accounts (thus removing most tweets from corporations, celebrities, or other public figures who could skew our results). 
@@ -49,3 +51,9 @@ Milestones:
 - Writing classifier
 - Gathering the test data set
 - Evaluating correctness of the classifier output
+
+### Quality Control and Aggregation Modules
+
+The aggregation module consists of a HIT and a Python script. The HIT will be responsible for collecting raw results from workers, and the script will (a) take in the results and count up the votes on each label for each tweet, and (b) aggregate the top two labels by vote, associate them (and the tweet) with the worker-entered label, and output that for the quality control HIT to process.
+
+The quality control module consists of a HIT (to be posted on Amazon Mechanical Turk). The code for the HIT can be found in `src/qc-hit.html`. The HIT will consist of a tweet (and the link to the tweet) and a drop-down menu containing the top two options for audiences of the tweet, as determined by workers in a previous HIT.
