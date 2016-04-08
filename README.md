@@ -54,6 +54,6 @@ Milestones:
 
 ### Quality Control and Aggregation Modules
 
-The **aggregation module** consists of a HIT and a Python script, both of which can be found in the [`src/`](src/) folder. The HIT will be responsible for collecting raw results from workers, and the script will (a) take in the results and count up the votes on each label for each tweet, and (b) aggregate the top two labels by vote, associate them (and the tweet) with the worker-entered label, and output that for the quality control HIT to process.
+The **aggregation module** consists of two Python scripts, which can be found in the [`src/aggregate1`](src/aggregate1) and [`src/aggregate2`](src/aggregate2) folders, respectively. The scripts will be responsible for counting up the votes on each label for each tweet, aggregate the top two labels by vote, and associate the worker-generated labels with their respective tweets.
 
-The **quality control module** consists of a HIT (to be posted on Amazon Mechanical Turk). The code for the HIT can be found in [`src/qc-hit.html`](src/qc-hit.html). The HIT will consist of a tweet (and the link to the tweet) and a drop-down menu containing the top two options for audiences of the tweet, as determined by workers in a previous HIT.
+The **quality control module** consists of a HIT (to be posted on Amazon Mechanical Turk and run after the main hit, which is located in [`src/crowdsource_labels`](src/quality_control)). The code for the quality control HIT can be found in [`src/quality_control/qc-hit.html`](src/quality_control/qc-hit.html). The HIT will consist of a tweet (and the link to the tweet) and a drop-down menu containing the top two options for audiences of the tweet, as determined by workers in a previous HIT.
