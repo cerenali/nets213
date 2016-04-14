@@ -41,7 +41,8 @@ class Tweet:
 # Iterate through tweets, aggregating data about each tweet
 tweetdict = {}
 for line in csv.DictReader(sys.stdin):
-    tweet_text = line['tweet']
+
+    tweet_text = line['tweet'].replace('\n', ' ')
     url = line['link']
     pos_label = line['positive_label']
     neg_label = line['negative_label']
@@ -62,13 +63,19 @@ for line in csv.DictReader(sys.stdin):
 
 
 
-writer = csv.DictWriter(open('aggregation1_out.csv', 'w'), ['tweet', 'link', 'friends', 'family', 'coworkers', 'general_internet_community', 'specific_internet_community', 'creative_label_1', 'creative_label_2', 'creative_label_3', 'creative_label_4', 'creative_label_5', 'creative_label_6', 'creative_label_7'])
+writer = csv.DictWriter(open('aggregation1_out.csv', 'w'), ['tweet', 'link', 'label1', 'label2', 'friends', 'family', 'coworkers', 'general_internet_community', 'specific_internet_community', 'creative_label_1', 'creative_label_2', 'creative_label_3', 'creative_label_4', 'creative_label_5', 'creative_label_6', 'creative_label_7'])
 writer.writeheader()
 for tweet_text in tweetdict:
     tweet = tweetdict[tweet_text]
+    sorted_tweets = [(x, tweet.label_counts[x]) for x in sorted(tweet.label_counts.keys(), key=lambda x : tweet.label_counts[x], reverse=True)]
+
     print tweet.creative_labels
 
     writer.writerow({
+        'tweet':tweet.tweet,
+        'link':tweet.url,
+        'label1': sorted_tweets[0][0],
+        'label2': sorted_tweets[1][0],
         'friends': tweet.label_counts['friends'],
         'family': tweet.label_counts['family'],
         'coworkers': tweet.label_counts['coworkers'],
