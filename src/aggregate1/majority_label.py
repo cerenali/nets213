@@ -71,7 +71,7 @@ for tweet_text in tweetdict:
     print tweet.creative_labels
 
     writer.writerow({
-        'tweet':tweet.tweet,
+        'text':tweet.tweet,
         'link':tweet.url,
         'label1': sorted_tweets[0][0],
         'label2': sorted_tweets[1][0],
