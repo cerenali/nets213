@@ -41,11 +41,11 @@ class Tweet:
 # Iterate through tweets, aggregating data about each tweet
 tweetdict = {}
 for line in csv.DictReader(sys.stdin):
-    tweet_text = line['tweet']
-    url = line['link']
-    pos_label = line['positive_label']
-    neg_label = line['negative_label']
-    creative_label = line['creative_label']
+    tweet_text = line['Input.text']
+    url = line['Input.url']
+    pos_label = line['Answer.positive_label']
+    neg_label = line['Answer.negative_label']
+    creative_label = line['Answer.creative_label']
 
     tweet = None
     if tweet_text not in tweetdict:
