@@ -62,7 +62,7 @@ for line in csv.DictReader(sys.stdin):
 
 
 
-writer = csv.DictWriter(open('aggregation1_out.csv', 'w'), ['tweet', 'link', 'label1', 'label2', 'friends', 'family', 'coworkers', 'general_internet_community', 'specific_internet_community', 'creative_label_1', 'creative_label_2', 'creative_label_3', 'creative_label_4', 'creative_label_5', 'creative_label_6', 'creative_label_7'])
+writer = csv.DictWriter(open('aggregation1_out.csv', 'w'), ['text', 'link', 'label1', 'label2', 'friends', 'family', 'coworkers', 'general_internet_community', 'specific_internet_community', 'creative_label_1', 'creative_label_2', 'creative_label_3', 'creative_label_4', 'creative_label_5', 'creative_label_6', 'creative_label_7'])
 writer.writeheader()
 for tweet_text in tweetdict:
     tweet = tweetdict[tweet_text]
