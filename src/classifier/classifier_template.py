@@ -1,4 +1,10 @@
 #!/bin/python
+# Author : NETS 213 Staff, John Hewitt johnhew@seas.upenn.edu
+#
+# Learns a classifier that assigns social sphere labels to tweets
+#
+
+
 
 import os
 import sys
@@ -15,26 +21,6 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.cross_validation import train_test_split
 from sklearn.externals.six import StringIO  
 
-'''
-Unigram + Neighbors
-Fold 0 : 0.98284
-Fold 1 : 0.98263
-Fold 2 : 0.98165
-Fold 3 : 0.98409
-Fold 4 : 0.98500
-Test Average : 0.98324
-'''
-
-'''
-Unigram + Neighbors + Constrained Bigram
-Fold 0 : 0.98193
-Fold 1 : 0.98137
-Fold 2 : 0.98333
-Fold 3 : 0.98186
-Fold 4 : 0.98291
-Test Average : 0.98228
-
-'''
 
 #read in raw data from file and return a list of (label, article) tuples
 def get_data(filename): 
@@ -60,7 +46,6 @@ def get_features(X) :
         count2 = 0
 	for x in X : 
 		f = {}
-
                 # Gunman distributional similarity neighbors
                 for neighbors in neighbors_sets:
                     for neighbor in neighbors:
@@ -88,12 +73,11 @@ def get_matricies(data, typ="unigram") :
 	le = LabelEncoder()
 	y = [d[0] for d in data]
 	texts = [d[1] for d in data]
-	if typ == "tree":
-		X = get_dtree_features(texts)
-	else :
-		X = get_features(texts)
-	#Here we are returning 5 things, the label vector y and feature matrix X, but also the texts from which the features were extracted and the 
-	#objects that were used to encode them. These will come in handy for your analysis, but you can ignore them for the initial parts of the assignment
+        X = get_features(texts)
+	# Here we are returning 5 things, the label vector y and feature matrix X, 
+        # but also the texts from which the features were extracted and the 
+	# objects that were used to encode them. These will come in handy for your analysis, 
+        # but you can ignore them for the initial parts of the assignment
 	return le.fit_transform(y), dv.fit_transform(X), texts, dv, le
 
 #train and multinomial naive bayes classifier
@@ -125,48 +109,12 @@ def cross_validate(X, y, dv=None, typ="unigram", numfolds=5,):
 			f = export_graphviz(clf, out_file=f, feature_names=dv.get_feature_names(), class_names=['Non Gun Related','Gun Related'])
 		create_graph("decision-tree.png")
 	print 'Test Average : %.05f'%(test_average)
-	print
 	return test_average
 
-#train and multinomial naive bayes classifier
-def get_top_features(X, y, dv):
-	clf = train_classifier(X, y)
-	#the DictVectorizer object remembers which column number corresponds to which feature, and return the feature names in the correct order
-	feature_names = dv.get_feature_names() 
-
-	#The below code will get the weights from the classifier, and print out the weights of the features you are interested in
-	features = [] #this will be a list of (feature_idx, weight) tuples
-	for i,w in enumerate(clf.coef_[0]): 
-		features.append((i,w))
-	#Sort the list by values, with the largest ones first
-	features = sorted(features, key=lambda e: e[1], reverse=True)
-
-        #Print out the feature names and thier weights
-	for i,w in features:
-	  print '%s\t%s'%(feature_names[i], w)
-
-def get_misclassified_examples(y, X, texts) :
-	x_train, x_test, y_train, y_test, train_texts, test_texts = train_test_split(X, y, texts)
-        print "\ntesting score"
-	clf = train_classifier(x_train, y_train)
-        results = clf.predict(x_test)
-        for count, i in enumerate(results):
-            if results[count] != y[count]:
-                print results[count], y[count], test_texts[count]
-
-def create_graph(file_name) :
-	os.system("dot -Tpng output.dot -o " + file_name)
-	os.unlink("output.dot")
 
 if __name__ == '__main__' : 
-
 	raw_data = get_data(sys.argv[1])
 	
-	print '\nRule-based classification'
-	rule_based_classifier(raw_data)
-        print '\nExtra Credit Rule-Based Classification'
-        extra_credit_classifier(raw_data)
-
 ################ Statistical Classification ################
 	print '\nStatistical classification'
 	y, X, texts, dv, le = get_matricies(raw_data)
