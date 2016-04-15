@@ -32,37 +32,35 @@ def get_data(filename):
 # and 'shooting' and 'bullet' to add some binary features.
 # Computed using my wrapper of Google's word2vec and their own vector set.
 # Returns 5-tuple of arrays of string neighbors
-def get_vectors():
-    vecs = {}
-    gunman_neighbors = ['lone_gunman']
-    return (gunman_neighbors,)
+#def get_vectors():
+#    vecs = {}
+#    gunman_neighbors = ['lone_gunman']
+#    return (gunman_neighbors,)
 
 #this is the main function you care about; pack all the cleverest features you can think of into here.
 def get_features(X) : 
 	features = []
     
-        neighbors_sets = get_vectors()
-        count1 = 0
-        count2 = 0
+        #neighbors_sets = get_vectors()
 	for x in X : 
 		f = {}
-                # Gunman distributional similarity neighbors
-                for neighbors in neighbors_sets:
-                    for neighbor in neighbors:
-                        if neighbor in x:
-                            f[neighbor + '_gunman_vector_sim'] = 1.0
-
-                # unigram features
                 for w in [word.strip(string.punctuation) for word in x.split()] :
                     f[w] = 1.0
+                # Gunman distributional similarity neighbors
+                #for neighbors in neighbors_sets:
+                #    for neighbor in neighbors:
+                #        if neighbor in x:
+                #            f[neighbor + '_gunman_vector_sim'] = 1.0
+
+                # unigram features
                     
                 # bigram features that include the words 'gun' or 'gunman' or 'shooting'
-                prior_word = ''
-                for w in [word.strip(string.punctuation) for word in x.split()] :
-                    if prior_word in ['gun', 'gunman', 'shooting'] or \
-                            w in ['gun', 'gunman', 'shooting']:
-                                f[w+'_'+prior_word] = 1.0
-                    prior_word = w
+                #prior_word = ''
+                #for w in [word.strip(string.punctuation) for word in x.split()] :
+                #    if prior_word in ['gun', 'gunman', 'shooting'] or \
+                #            w in ['gun', 'gunman', 'shooting']:
+                #                f[w+'_'+prior_word] = 1.0
+                #    prior_word = w
             
 		features.append(f)
 	return features
@@ -110,6 +108,24 @@ def cross_validate(X, y, dv=None, typ="unigram", numfolds=5,):
 		create_graph("decision-tree.png")
 	print 'Test Average : %.05f'%(test_average)
 	return test_average
+
+
+#train and multinomial naive bayes classifier
+def get_top_features(X, y, dv):
+	clf = train_classifier(X, y)
+	#the DictVectorizer object remembers which column number corresponds to which feature, and return the feature names in the correct order
+	feature_names = dv.get_feature_names() 
+
+	#The below code will get the weights from the classifier, and print out the weights of the features you are interested in
+	features = [] #this will be a list of (feature_idx, weight) tuples
+	for i,w in enumerate(clf.coef_[0]): 
+		features.append((i,w))
+	#Sort the list by values, with the largest ones first
+	features = sorted(features, key=lambda e: e[1], reverse=True)
+
+        #Print out the feature names and thier weights
+	for i,w in features:
+	  print '%s\t%s'%(feature_names[i], w)
 
 
 if __name__ == '__main__' : 

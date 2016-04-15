@@ -38,7 +38,7 @@ label_to_writer = {'friends':friends_writer, 'family':family_writer, 'coworkers'
 # Labelling as 0 or 1 if an instance of each label
 for line in csv.DictReader(sys.stdin):
     label = line['final_label']
-    tweet_text = line['tweet']
+    tweet_text = line['tweet'].replace('\n', ' ')
     label_int = label_to_writer[label]
     for key in label_to_writer:
         if key == label:
