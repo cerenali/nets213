@@ -2,6 +2,8 @@
 
 ### Stratifying Twitter Social Spheres
 
+This project will explore how we can identify different social spheres on Twitter according to the language people use.
+
 Group members: John Hewitt, Roger Luo, Alice Ren
 
 ### Breakdown of Major Components
