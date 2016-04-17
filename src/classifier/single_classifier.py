@@ -127,6 +127,9 @@ def get_top_features(X, y, dv):
 	for i,w in features:
 	  print '%s\t%s'%(feature_names[i], w)
 
+def get_classifier(filename):
+    y, X, texts, dv, le = get_matricies(raw_data)
+    return train_classifier(X,y)
 
 if __name__ == '__main__' : 
 	raw_data = get_data(sys.argv[1])
