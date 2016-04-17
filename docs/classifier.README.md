@@ -14,6 +14,7 @@ Writes to `./training/` the following files:
 * `coworkers.train`
 * `general.train`
 * `specific.train`
+
 Each file is of format:
 
         <0/1: is this the tweet's majority label>\t<tweet text>
