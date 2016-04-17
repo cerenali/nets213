@@ -6,5 +6,6 @@ Also aggregated for each tweet are the 7 'creative', or freeform entry, labels u
 describe the tweet's social sphere.
   
 majority_label.py
+
     USAGE: <labelled tweets>.csv | python2 majority_label.py > aggregate1_out.csv
 
