@@ -44,8 +44,29 @@ def get_features(X) :
         #neighbors_sets = get_vectors()
 	for x in X : 
 		f = {}
+
+                # Unigram Features
                 for w in [word.strip(string.punctuation) for word in x.split()] :
                     f[w] = 1.0
+
+                # Bigram Features
+                prior = []
+                for w in [word.strip(string.punctuation) for word in x.split()] :
+                    if len(prior) == 2:
+                        prior.pop(0)
+                    prior.append(w)
+                    if len(prior) == 2:
+                        f[' '.join(prior)] = 1
+
+                # Trigram Features
+                prior = []
+                for w in [word.strip(string.punctuation) for word in x.split()] :
+                    if len(prior) == 3:
+                        prior.pop(0)
+                    prior.append(w)
+                    if len(prior) == 3:
+                        f[' '.join(prior)] = 1
+
                 # Gunman distributional similarity neighbors
                 #for neighbors in neighbors_sets:
                 #    for neighbor in neighbors:

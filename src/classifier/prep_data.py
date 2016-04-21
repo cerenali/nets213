@@ -28,11 +28,16 @@ coworkers_writer = csv.writer(open('coworkers_train', 'w'), delimiter='\t')
 general_writer = csv.writer(open('general_train', 'w'), delimiter='\t')
 specific_writer = csv.writer(open('specific_train', 'w'), delimiter='\t')
 
+# Create a CSV writer for a multiclass learner
+all_writer = csv.writer(open('multiclass_train', 'w'), delimiter='\t')
+
 # Map the name of the label to the writer that will write the training file for the 
 # corresponding classifier
 label_to_writer = {'friends':friends_writer, 'family':family_writer, 'coworkers':coworkers_writer, 
         'general_internet_community':general_writer, 'specific_internet_community':specific_writer}
         
+label_to_int = {'friends':0, 'family':1, 'coworkers':2, 
+        'general_internet_community':3, 'specific_internet_community':4}
 
 # Iterate through the labelled tweets, writing each tweet to all of the training files,
 # Labelling as 0 or 1 if an instance of each label
@@ -45,6 +50,9 @@ for line in csv.DictReader(sys.stdin):
             label_to_writer[key].writerow(['1', tweet_text])
         else:
             label_to_writer[key].writerow(['0', tweet_text])
+
+    # Also write to the multiclass classifier
+    all_writer.writerow([label_to_int[label], tweet_text])
 
 
 
