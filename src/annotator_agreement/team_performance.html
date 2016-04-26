@@ -7,34 +7,34 @@
 
       function drawChart() {
         var data = new google.visualization.DataTable();
-              data.addColumn('string', 'Contributor');
-              data.addColumn('number', 'Positive Label Accuracy');
-              data.addColumn('number', 'Negative Label Accuracy');
+          data.addColumn('string', 'Contributor');
+          data.addColumn('number', 'Positive Label Accuracy');
+          data.addColumn('number', 'Negative Label Accuracy');
 
-              data.addRows([
-                ['Alice', 82.0, 60.0],
-                ['John', 74.0, 70.0],
-                ['Roger', 90.0, 58.0]
-              ]);
+          data.addRows([
+            ['Alice', 82.0, 60.0],
+            ['John', 74.0, 70.0],
+            ['Roger', 90.0, 58.0]
+          ]);
 
-              var options = {
-                title: 'Team Member Accuracy (compared against gold standard)',
-                hAxis: {
-                  title: 'contributor'
-                },
-                vAxis: {
-                  title: '% correct',
-                  viewWindow: {
-                    min: 0,
-                    max: 100
-                  }
-                }
-              };
+          var options = {
+            title: 'Team Member Accuracy (compared against gold standard)',
+            hAxis: {
+              title: 'contributor'
+            },
+            vAxis: {
+              title: '% correct',
+              viewWindow: {
+                min: 0,
+                max: 100
+              }
+            }
+          };
 
-              var chart = new google.visualization.ColumnChart(
-                document.getElementById('chart_div'));
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
 
-              chart.draw(data, options);
+          chart.draw(data, options);
       }
     </script>
   </head>
