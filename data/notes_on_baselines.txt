@@ -1,0 +1,2 @@
+Taking the majority label on positive label for the 50-sample gives a : .62745
+Taking the majority label on negative label for the 50-sample gives a : .43137

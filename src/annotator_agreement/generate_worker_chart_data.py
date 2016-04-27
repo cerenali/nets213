@@ -68,7 +68,7 @@ majority_neg_score = round(float(majority_neg_score) / total_completed * 100, 2)
 
 # print output for chart data
 print "['Majority', " + str(majority_pos_score) + ", " + str(majority_neg_score) + "],"
-for worker in worker_scores:
+for worker in sorted(worker_scores, key=lambda x : worker_scores[x][0], reverse=True):
   # truncate printing of worker ID for brevity + a modicum of privacy
   print "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
 
