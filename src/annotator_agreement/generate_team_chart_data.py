@@ -1,13 +1,14 @@
 #! /usr/bin/python2
 
-# input : one gold standard CSV file and one contributor CSV file
+# input : one gold standard CSV file and three contributor CSV files (as 
+#   command-line arguments)
 
 # output : calculates the performance of the contributor
 #   (by taking the number of labels that match the gold standard and
-#   dividing by total number of labels) and prints this to the console,
-#   to be copied and pasted into the team_performance.html column chart
+#   dividing by total number of labels) and prints the HTML for the
+#   team performance chart to the console.
 
-# example : `python generate_team_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/alice_annotations.csv`
+# example : python generate_team_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/alice_annotations.csv ../../data/annotator_agreement/roger_annotations.csv ../../data/annotator_agreement/john_annotations.csv > team_performance_chart.html
 
 # author : a mysterious bumbledinger
 
@@ -16,7 +17,9 @@ import sys
 import collections
 
 gold_file = csv.DictReader(open(sys.argv[1]))
-contributor_file = csv.DictReader(open(sys.argv[2]))
+contributor1_file = csv.DictReader(open(sys.argv[2]))
+contributor2_file = csv.DictReader(open(sys.argv[3]))
+contributor3_file = csv.DictReader(open(sys.argv[4]))
 
 # dictionary that maps HIT id to the respective gold label
 gold_pos_labels = {}
@@ -45,7 +48,65 @@ def calculate_percentage_matched(annotator_file):
   return (float(pos_matched) / len(gold_pos_labels) * 100, float(neg_matched) / len(gold_neg_labels) * 100)
 
 
-pos_correct, neg_correct = calculate_percentage_matched(contributor_file)
+one_pos_correct, one_neg_correct = calculate_percentage_matched(contributor1_file)
+two_pos_correct, two_neg_correct = calculate_percentage_matched(contributor2_file)
+three_pos_correct, three_neg_correct = calculate_percentage_matched(contributor3_file)
+
+html = """
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Contributor');
+          data.addColumn('number', 'Positive Label Accuracy');
+          data.addColumn('number', 'Negative Label Accuracy');
+
+          data.addRows([
+"""
+
+# the order is hardcoded because why not
+html += "['Alice', " + str(one_pos_correct) + ", " + str(one_neg_correct) + "],"
+html += "['Roger', " + str(two_pos_correct) + ", " + str(two_neg_correct) + "],"
+html += "['John', " + str(three_pos_correct) + ", " + str(three_neg_correct) + "]"
+
+html += """
+
+
+          ]);
+
+          var options = {
+            title: 'Team Member Accuracy (compared against gold standard)',
+            hAxis: {
+              title: 'contributor'
+            },
+            vAxis: {
+              title: '% correct',
+              viewWindow: {
+                min: 0,
+                max: 100
+              }
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 700px; height: 500px"></div>
+  </body>
+</html>
+"""
+
+print html
 
 # fill in the name by hand 
-print "['', " + str(pos_correct) + ", " + str(neg_correct) + "],"
+# print "['', " + str(pos_correct) + ", " + str(neg_correct) + "],"

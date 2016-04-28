@@ -5,10 +5,10 @@
 
 # output : calculates the performance of each worker, as well as the workers
 #   as a whole (by taking the number of labels that match the gold standard and
-#   dividing by total number of labels), then prints this to the console,
-#   to be copied and pasted into the team_performance.html column chart
+#   dividing by total number of labels), then prints the full HTML for the
+#   team performance chart to the console.
 
-# example : `python generate_worker_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/turkers_50_annotations.csv`
+# example : python generate_worker_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/turkers_50_annotations.csv > worker_performance_chart.html
 
 # author : a mysterious bumbledinger
 
@@ -59,26 +59,74 @@ for line in worker_file:
 # calculate actual percentages (both positive and negative) for workers
 for worker in worker_scores:
   divisor = worker_scores[worker][2]
-  # print 'completed: ' + str(worker_scores[worker][2]) + ' | pos correct: ' + str(worker_scores[worker][0]) + ' | neg correct: ' + str(worker_scores[worker][1])
   worker_scores[worker][0] = round(float(worker_scores[worker][0]) / divisor * 100, 2)
   worker_scores[worker][1] = round(float(worker_scores[worker][1]) / divisor * 100, 2)
-  # print '  > scores: ' + str(worker_scores[worker][0]) + ', ' + str(worker_scores[worker][1])
 
 majority_pos_score = round(float(majority_pos_score) / total_completed * 100, 2)
 majority_neg_score = round(float(majority_neg_score) / total_completed * 100, 2)
 
+
+html = """
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Contributor');
+          data.addColumn('number', 'Positive Label Accuracy');
+          data.addColumn('number', 'Negative Label Accuracy');
+
+          data.addRows([
+"""
+
+html += "['Majority', " + str(majority_pos_score) + ", " + str(majority_neg_score) + "],"
+
 # print output for chart data
-print "['Majority', " + str(majority_pos_score) + ", " + str(majority_neg_score) + "],"
+# print "['Majority', " + str(majority_pos_score) + ", " + str(majority_neg_score) + "],"
 for worker in sorted(worker_scores, key=lambda x : worker_scores[x][0], reverse=True):
+  # filter out workers who only did 1 HIT
+  if worker_scores[worker][2] == 1:
+    continue
+
   # truncate printing of worker ID for brevity + a modicum of privacy
-  print "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
+  html += "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
+  # print "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
+
+html = html[:-1] # truncate last comma
+
+html += """
+]);
+
+          var options = {
+            title: 'Worker Accuracy (compared against gold standard)',
+            hAxis: {
+              title: 'worker ID'
+            },
+            vAxis: {
+              title: '% correct',
+              viewWindow: {
+                min: 0,
+                max: 100
+              }
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1200px; height: 500px"></div>
+  </body>
+</html>
+"""
 
 
-
-
-
-
-
-
-
-
+print html
