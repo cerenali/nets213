@@ -1,6 +1,7 @@
 #! /usr/bin/python2
 
-# input : one gold standard CSV file and one worker CSV file
+# input : one gold standard CSV file and one worker CSV file (passed in as
+#   command line arguments; see example command)
 
 # output : calculates the performance of each worker, as well as the workers
 #   as a whole (by taking the number of labels that match the gold standard and
