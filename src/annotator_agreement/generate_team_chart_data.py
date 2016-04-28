@@ -70,9 +70,11 @@ html = """
 """
 
 # the order is hardcoded because why not
-html += "['Alice', " + str(one_pos_correct) + ", " + str(one_neg_correct) + "],"
 html += "['Roger', " + str(two_pos_correct) + ", " + str(two_neg_correct) + "],"
-html += "['John', " + str(three_pos_correct) + ", " + str(three_neg_correct) + "]"
+html += "['Alice', " + str(one_pos_correct) + ", " + str(one_neg_correct) + "],"
+html += "['John', " + str(three_pos_correct) + ", " + str(three_neg_correct) + "],"
+html += "['Turker Majority', 67.91, 38.85],"
+html += "['Plurality Label Baseline', 62.75, 43.13]"
 
 html += """
 

@@ -92,8 +92,9 @@ for worker in sorted(worker_scores, key=lambda x : worker_scores[x][0], reverse=
     continue
 
   # truncate printing of worker ID for brevity + a modicum of privacy
-  html += "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
+  html += "['" + "" + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
 
+html += "['Plurality Label Baseline', 62.75, 43.13],"
 html = html[:-1] # truncate last comma
 
 html += """
