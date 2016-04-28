@@ -86,7 +86,6 @@ html = """
 html += "['Majority', " + str(majority_pos_score) + ", " + str(majority_neg_score) + "],"
 
 # print output for chart data
-# print "['Majority', " + str(majority_pos_score) + ", " + str(majority_neg_score) + "],"
 for worker in sorted(worker_scores, key=lambda x : worker_scores[x][0], reverse=True):
   # filter out workers who only did 1 HIT
   if worker_scores[worker][2] == 1:
@@ -94,7 +93,6 @@ for worker in sorted(worker_scores, key=lambda x : worker_scores[x][0], reverse=
 
   # truncate printing of worker ID for brevity + a modicum of privacy
   html += "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
-  # print "['" + worker[:3] + "', " + str(worker_scores[worker][0]) + ", " + str(worker_scores[worker][1]) + "],"
 
 html = html[:-1] # truncate last comma
 
