@@ -1,0 +1,11 @@
+
+Statistical classification
+Fold 0 : 0.61667
+Fold 1 : 0.70000
+Fold 2 : 0.68333
+Fold 3 : 0.56667
+Fold 4 : 0.68333
+Test Average : 0.65000
+TERNARY: short	0.691533828623
+TERNARY: medium	0.235305022816
+TERNARY: long	-1.23748460555
