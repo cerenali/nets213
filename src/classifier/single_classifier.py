@@ -45,43 +45,40 @@ def get_features(X) :
 	for x in X : 
 		f = {}
 
-                # Unigram Features
-                for w in [word.strip(string.punctuation) for word in x.split()] :
-                    f[w] = 1.0
+         #       # Unigram Features
+         #       for w in [word.strip(string.punctuation) for word in x.split()] :
+         #           f[w] = 1.0
 
-                # Bigram Features
-                prior = []
-                for w in [word.strip(string.punctuation) for word in x.split()] :
-                    if len(prior) == 2:
-                        prior.pop(0)
-                    prior.append(w)
-                    if len(prior) == 2:
-                        f[' '.join(prior)] = 1
+         #       # Bigram Features
+         #       prior = []
+         #       for w in [word.strip(string.punctuation) for word in x.split()] :
+         #           if len(prior) == 2:
+         #               prior.pop(0)
+         #           prior.append(w)
+         #           if len(prior) == 2:
+         #               f[' '.join(prior)] = 1
 
-                # Trigram Features
-                prior = []
-                for w in [word.strip(string.punctuation) for word in x.split()] :
-                    if len(prior) == 3:
-                        prior.pop(0)
-                    prior.append(w)
-                    if len(prior) == 3:
-                        f[' '.join(prior)] = 1
+         #       # Trigram Features
+         #       prior = []
+         #       for w in [word.strip(string.punctuation) for word in x.split()] :
+         #           if len(prior) == 3:
+         #               prior.pop(0)
+         #           prior.append(w)
+         #           if len(prior) == 3:
+         #               f[' '.join(prior)] = 1
 
-                # Gunman distributional similarity neighbors
-                #for neighbors in neighbors_sets:
-                #    for neighbor in neighbors:
-                #        if neighbor in x:
-                #            f[neighbor + '_gunman_vector_sim'] = 1.0
+         #       # @ Sign Binary Feature
+         #       if "@" in x:
+         #           f["BINARY: @ sign present"] = 1
 
-                # unigram features
-                    
-                # bigram features that include the words 'gun' or 'gunman' or 'shooting'
-                #prior_word = ''
-                #for w in [word.strip(string.punctuation) for word in x.split()] :
-                #    if prior_word in ['gun', 'gunman', 'shooting'] or \
-                #            w in ['gun', 'gunman', 'shooting']:
-                #                f[w+'_'+prior_word] = 1.0
-                #    prior_word = w
+                # Ternary length feature"
+                if len(x) <47:
+                    f['TERNARY: short'] = 1
+                if len(x) > 47 and len(x) < 95:
+                    f['TERNARY: medium'] = 1
+                if len(x) > 94:
+                    f['TERNARY: long'] = 1
+
             
 		features.append(f)
 	return features
