@@ -10,7 +10,7 @@
 
 # example : python generate_worker_chart_data.py <gold standard file> <worker file> > <output file>
 
-# example : python generate_worker_chart_data.py ../../data/preliminary_analysis/gold_standard_annotations.csv ../../data/preliminary_analysis/turkers_50_annotations.csv > ../../results/charts/worker_performance_chart.html
+# example : python generate_worker_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv.csv ../../data/preliminary_analysis/turkers_50_annotations.csv > ../../results/charts/worker_performance_chart.html
 
 # author : a mysterious bumbledinger
 

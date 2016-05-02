@@ -10,7 +10,7 @@
 
 # example : python generate_team_chart_data.py <gold standard file> <alice file> <roger file> <john file> > <output file>
 
-# example : python generate_team_chart_data.py ../../data/preliminary_analysis/gold_standard_annotations.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/team_performance_chart.html
+# example : python generate_team_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/team_performance_chart.html
 
 # author : a mysterious bumbledinger
 
