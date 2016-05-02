@@ -8,7 +8,9 @@
 #   dividing by total number of labels), then prints the full HTML for the
 #   team performance chart to the console.
 
-# example : python generate_worker_qc_chart_data.py ../../data/full_batch/quality_control_HIT_out.csv ../../data/full_batch/full_batch_tweet_annotations.csv > worker_performance_qc_chart.html
+# example : python generate_worker_qc_chart_data.py <gold standard file> <worker file> > chart.html
+
+# example : python generate_worker_qc_chart_data.py ../../data/full_batch/quality_control_HIT_out.csv ../../data/full_batch/full_batch_tweet_annotations.csv > ../../results/charts/worker_performance_qc_chart.html
 
 # author : a mysterious bumbledinger
 
