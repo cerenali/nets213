@@ -27,8 +27,8 @@ gold_labels = {}
 
 # fill gold_labels
 for line in gold_file:
-  tweet_text = line['Input.text'].encode('UTF-8').replace('\n', ' ').replace('_', ' ')
-  gold_labels[tweet_text] = line['positive_gold_label'].encode('UTF-8')
+  tweet_text = line['Input.text'].encode('UTF-8').replace('\n', ' ')
+  gold_labels[tweet_text] = line['positive_gold_label'].encode('UTF-8').replace('_', ' ')
 
 qc_num_correct = 0
 qc_total_done = 0
