@@ -8,7 +8,7 @@
 #   dividing by total number of labels) and prints the HTML for the
 #   team performance chart to the console.
 
-# example : python generate_team_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/alice_annotations.csv ../../data/annotator_agreement/roger_annotations.csv ../../data/annotator_agreement/john_annotations.csv > team_performance_chart.html
+# example : python generate_team_chart_data_with_classifier_results.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > team_performance_chart_with_classifier.html
 
 # author : a mysterious bumbledinger
 
@@ -72,7 +72,8 @@ html = """
 html += "['Roger', " + str(two_pos_correct) + "],"
 html += "['Alice', " + str(one_pos_correct) + "],"
 html += "['John', " + str(three_pos_correct) + "],"
-html += "['Plurality Label Baseline', 62.75]"
+html += "['Classifier', 70],"
+html += "['Majority Baseline', 62]"
 
 html += """
 
@@ -80,7 +81,7 @@ html += """
           ]);
 
           var options = {
-            title: 'Team Member Accuracy (compared against gold standard)',
+            title: 'Team Member and Classifier Accuracy (compared against gold standard)',
             hAxis: {
               title: 'contributor'
             },
