@@ -10,7 +10,7 @@
 
 # example : python generate_worker_chart_data.py <gold standard file> <worker file> > <output file>
 
-# example : python generate_worker_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv.csv ../../data/preliminary_analysis/turkers_50_annotations.csv > ../../results/charts/worker_performance_chart.html
+# example : python generate_worker_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/preliminary_analysis/turkers_50_annotations.csv > ../../results/charts/worker_performance_chart.html
 
 # author : a mysterious bumbledinger
 
@@ -28,8 +28,8 @@ gold_neg_labels = {}
 # fill gold_labels
 for line in gold_file:
   hitId = line['HITId'].encode('UTF-8')
-  gold_pos_labels[hitId] = line['positive_gold_label'].encode('UTF-8')
-  gold_neg_labels[hitId] = line['negative_gold_label'].encode('UTF-8')
+  gold_pos_labels[hitId] = line['positive_gold_label'].encode('UTF-8').replace('_', ' ')
+  gold_neg_labels[hitId] = line['negative_gold_label'].encode('UTF-8').replace('_', ' ')
 
 # dictionaries that maps worker ID to a list of [num_pos_correct, num_neg_correct, num_completed]
 worker_scores = defaultdict(lambda: [0, 0, 0])
@@ -43,8 +43,8 @@ total_completed = 0
 for line in worker_file:
   hitId = line['HITId'].encode('UTF-8')
   workerId = line['WorkerId'].encode('UTF-8')
-  positive = line['Answer.positive_label'].encode('UTF-8')
-  negative = line['Answer.negative_label'].encode('UTF-8')
+  positive = line['Answer.positive_label'].encode('UTF-8').replace('_', ' ')
+  negative = line['Answer.negative_label'].encode('UTF-8').replace('_', ' ')
 
   # increment num_completed
   worker_scores[workerId][2] += 1
