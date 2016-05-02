@@ -27,7 +27,7 @@ qc_pos_labels = {}
 # fill gold_labels
 for line in qc_file:
   tweet_text = line['Input.text'].encode('UTF-8').replace('\n', ' ')
-  qc_pos_labels[tweet_text] = line['Answer.positive_label'].encode('UTF-8')
+  qc_pos_labels[tweet_text] = line['Answer.positive_label'].encode('UTF-8').replace('_', ' ')
 
 # dictionaries that maps worker ID to a list of [num_pos_correct, num_completed]
 worker_scores = defaultdict(lambda: [0, 0])
@@ -40,7 +40,7 @@ total_completed = 0
 for line in worker_file:
   tweet_text = line['Input.text'].encode('UTF-8').replace('\n', ' ')
   workerId = line['WorkerId'].encode('UTF-8')
-  positive = line['Answer.positive_label'].encode('UTF-8')
+  positive = line['Answer.positive_label'].encode('UTF-8').replace('_', ' ')
 
   # increment num_completed
   worker_scores[workerId][1] += 1
