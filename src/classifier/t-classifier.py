@@ -86,6 +86,10 @@ def get_matricies(data, typ="unigram") :
         # but you can ignore them for the initial parts of the assignment
 	return le.fit_transform(y), dv.fit_transform(X), texts, dv, le
 
+def get_matricies_for_unlabelled(text, dv, le) : 
+	X = get_features([text])
+	return dv.transform(X), dv, le
+
 #train and multinomial naive bayes classifier
 def train_classifier(X, y):
 	clf = LogisticRegression()
@@ -135,6 +139,11 @@ def get_top_features(X, y, dv):
 #	for i,w in features:
 #	  print '%s\t%s'%(feature_names[i], w)
 
+def predict_unlabelled(clf, X, outfile) : 
+	num_articles = X.shape[0]
+	for i,x in enumerate(X) : 
+		outfile.write('%d\n'%clf.predict(x)[0])
+
 def get_classifier(filename):
     y, X, texts, dv, le = get_matricies(raw_data)
     return train_classifier(X,y)
@@ -167,6 +176,8 @@ if __name__ == '__main__' :
 		for i,text in enumerate(f) :
 			if i%10000 == 0 : sys.stderr.write("Predicting article # %d\n"%(i))
 			if n and (i > n) : break 
+			x, dv, le = get_matricies_for_unlabelled(text, dv, le)
+			predict_unlabelled(clf, x, outfile)
 	
         
         
