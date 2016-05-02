@@ -5,7 +5,7 @@
 # output : generates the HTML data for a chart of the classifer performance
 #   across the different audience categories
 
-# example : python generate_classifier_results_across_categories.py
+# example : python generate_classifier_results_across_categories.py > ../../results/charts/final_classfier_performance_chart_across_categories.html
 
 # author : a mysterious bumbledinger
 
