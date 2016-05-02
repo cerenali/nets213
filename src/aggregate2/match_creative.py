@@ -18,9 +18,9 @@ pair_count = {}
 with open(input) as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
-		final_label = row['final_label']
+		final_label = row['Answer.positive_label']
 		for num in range(1, 7) :
-			creative_label = row['creative_label_'+str(num)]
+			creative_label = row['Input.creative_label_'+str(num)]
 			if creative_label == '' :
 				continue
 			pair = CFPair(c=creative_label, f=final_label)
