@@ -1,0 +1,45 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Category');
+          data.addColumn('number', 'Positive Label Accuracy');
+
+          data.addRows([
+['All', 70],['Friends', 100],['Family', 0],['General Internet Community', 26.67],['Coworkers', 0],['Specific Organization', 0],
+
+
+          ]);
+
+          var options = {
+            title: 'Classifier Accuracy Across Categories',
+            hAxis: {
+              title: 'category'
+            },
+            vAxis: {
+              title: '% correct',
+              viewWindow: {
+                min: 0,
+                max: 100
+              }
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 700px; height: 500px"></div>
+  </body>
+</html>
+
