@@ -8,7 +8,7 @@
 #   dividing by total number of labels), then prints the full HTML for the
 #   team performance chart to the console.
 
-# example : python generate_worker_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/turkers_50_annotations.csv > worker_performance_chart.html
+# example : python generate_worker_chart_data.py ../../data/preliminary_analysis/gold_standard_annotations.csv ../../data/preliminary_analysis/turkers_50_annotations.csv > worker_performance_chart.html
 
 # author : a mysterious bumbledinger
 
