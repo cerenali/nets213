@@ -8,7 +8,9 @@
 #   dividing by total number of labels) and prints the HTML for the
 #   team performance chart to the console.
 
-# example : python generate_team_chart_data.py ../../data/annotator_agreement/gold_standard_annotations.csv ../../data/annotator_agreement/alice_annotations.csv ../../data/annotator_agreement/roger_annotations.csv ../../data/annotator_agreement/john_annotations.csv > team_performance_chart.html
+# example : python generate_team_chart_data.py <gold standard file> <alice file> <roger file> <john file> > <output file>
+
+# example : python generate_team_chart_data.py ../../data/preliminary_analysis/gold_standard_annotations.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/team_performance_chart.html
 
 # author : a mysterious bumbledinger
 
