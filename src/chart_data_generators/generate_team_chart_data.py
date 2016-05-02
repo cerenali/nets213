@@ -10,7 +10,7 @@
 
 # example : python generate_team_chart_data.py <gold standard file> <alice file> <roger file> <john file> > <output file>
 
-# example : python generate_team_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/team_performance_chart.html
+# example : python generate_team_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/team_performance_chart.html
 
 # author : a mysterious bumbledinger
 
@@ -30,16 +30,16 @@ gold_neg_labels = {}
 # fill gold_labels
 for line in gold_file:
   hitId = line['HITId'].encode('UTF-8')
-  gold_pos_labels[hitId] = line['positive_gold_label'].encode('UTF-8')
-  gold_neg_labels[hitId] = line['negative_gold_label'].encode('UTF-8')
+  gold_pos_labels[hitId] = line['positive_gold_label'].encode('UTF-8').replace('_', ' ')
+  gold_neg_labels[hitId] = line['negative_gold_label'].encode('UTF-8').replace('_', ' ')
 
 def calculate_percentage_matched(annotator_file):
   pos_matched = 0
   neg_matched = 0
   for line in annotator_file:
     hitId = line['HITId'].encode('UTF-8')
-    positive = line['positive_label'].encode('UTF-8')
-    negative = line['negative_label'].encode('UTF-8')
+    positive = line['positive_label'].encode('UTF-8').replace('_', ' ')
+    negative = line['negative_label'].encode('UTF-8').replace('_', ' ')
 
     if positive == gold_pos_labels[hitId]:
       pos_matched += 1
