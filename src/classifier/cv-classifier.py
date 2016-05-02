@@ -28,6 +28,15 @@ def get_data(filename):
 	random.shuffle(data)
 	return data
 
+# Offer up the top 100 most distributionally similar words to the word 'gunman' 
+# and 'shooting' and 'bullet' to add some binary features.
+# Computed using my wrapper of Google's word2vec and their own vector set.
+# Returns 5-tuple of arrays of string neighbors
+#def get_vectors():
+#    vecs = {}
+#    gunman_neighbors = ['lone_gunman']
+#    return (gunman_neighbors,)
+
 #this is the main function you care about; pack all the cleverest features you can think of into here.
 def get_features(X) : 
 	features = []
@@ -127,51 +136,26 @@ def get_top_features(X, y, dv):
 	#The below code will get the weights from the classifier, and print out the weights of the features you are interested in
 	features = [] #this will be a list of (feature_idx, weight) tuples
 	for i,w in enumerate(clf.coef_[0]): 
-                print clf.coef_
 		features.append((i,w))
 	#Sort the list by values, with the largest ones first
 	features = sorted(features, key=lambda e: e[1], reverse=True)
 
         #Print out the feature names and thier weights
-#	for i,w in features:
-#	  print '%s\t%s'%(feature_names[i], w)
+	for i,w in features:
+	  print '%s\t%s'%(feature_names[i], w)
 
 def get_classifier(filename):
     y, X, texts, dv, le = get_matricies(raw_data)
     return train_classifier(X,y)
 
 if __name__ == '__main__' : 
+	raw_data = get_data(sys.argv[1])
+	
+################ Statistical Classification ################
+	print '\nStatistical classification'
+	y, X, texts, dv, le = get_matricies(raw_data)
+	cross_validate(X,y)
 
-	#The program expects 2 arguments, a file containing training data and a file containing unlabelled data. 
-	#If it does not get two arguments, print instructions and exit
-	if len(sys.argv) < 3 : print "Usage: python classifier.py TRAINING_DATA UNLABELLED_DATA [n]"; exit(0)
-	#Optionally, specify a number of lines of unlabelled data to predict
-	n = None if len(sys.argv) < 4 else int(sys.argv[3])
-	
-	#Load the training data and then unseen data
-	sys.stderr.write("Reading raw data\n")
-	training_data = get_data(sys.argv[1])
-	
-	sys.stderr.write("Loading training data\n")
-	#Convert training data into a label vector y and a feature matrix X
-	y, X, texts, dv, le = get_matricies(training_data)
-
-	sys.stderr.write("Training classifier\n")
-	#Train your classifer on all the data you have
-	clf = train_classifier(X,y) 
-	
-	sys.stderr.write("Loading unlabelled data\n")
-	
-	outfile = open("classifier_predictions.txt", 'w')
-	with open(sys.argv[2]) as f : 
-		
-		for i,text in enumerate(f) :
-			if i%10000 == 0 : sys.stderr.write("Predicting article # %d\n"%(i))
-			if n and (i > n) : break 
-	
-        
-        
     	get_top_features(X, y, dv)
-        
     	#get_misclassified_examples(y, X, texts)
 

@@ -25,17 +25,16 @@ three_file = csv.DictReader(open(sys.argv[3]))
 
 def add_results(annotator_file):
     for line in annotator_file:
-        ID = line['HITId']
         tweet = line['Input.text']
         positive = line['positive_label']
         negative = line['negative_label']
 
-        if not ID in results:
-            results[ID] = collections.defaultdict(int)
-        results[ID][positive] += 1
-        results[ID][negative] -= 1
+        if tweet not in results:
+            results[tweet] = collections.defaultdict(int)
+        results[tweet][positive] += 1
+        results[tweet][negative] -= 1
 
-        ID_to_tweet[ID] = tweet
+        ID_to_tweet[tweet] = tweet
 
 
 
@@ -48,7 +47,7 @@ add_results(three_file)
 
 # Results will be written to stdout
 writer = csv.writer(sys.stdout)
-writer.writerow(['HITId', 'Input.text', 'positive_gold_label', 'negative_gold_label'])
+writer.writerow(['HITId', 'Input.text', 'Answer.positive_label', 'Answer.negative_label'])
 
 # Now, iterate through the HIT IDs, spitting out the majority label for each
 for ID in ID_to_tweet:
@@ -58,26 +57,4 @@ for ID in ID_to_tweet:
 
     positive_label = sorted_labels[0][0]
     negative_label = sorted_labels[-1][0]
-    #if sorted_labels[0][1] < 3:
-    #    print ''
-    #    print sorted_labels, tweet
-    #    positive_label = sorted_labels[int(raw_input('positive label:'))][0]
-    #    negative_label = sorted_labels[int(raw_input('negative label:'))][0]
-    #    print ''
     writer.writerow([ID, tweet, positive_label, negative_label])
-#
-#hdict = {}
-#for line in csv.DictReader(sys.stdin):
-#    hdict[line['HITId']] = line['Input.text'].replace('\n', ' ')
-#
-#writer = csv.writer(sys.stdout)
-#writer.writerow(['HITId', 'Input.text'])
-#for count, i in enumerate(hdict):
-#    if count == 49:
-#        break
-#    writer.writerow([i, hdict[i]])
-#
-#
-#
-#
-

@@ -27,7 +27,7 @@ gold_neg_labels = {}
 
 # fill gold_labels
 for line in gold_file:
-  hitId = line['HITId'].encode('UTF-8')
+  hitId = line['Input.text'].encode('UTF-8')
   gold_pos_labels[hitId] = line['positive_gold_label'].encode('UTF-8')
   gold_neg_labels[hitId] = line['negative_gold_label'].encode('UTF-8')
 
@@ -35,7 +35,7 @@ def calculate_percentage_matched(annotator_file):
   pos_matched = 0
   neg_matched = 0
   for line in annotator_file:
-    hitId = line['HITId'].encode('UTF-8')
+    hitId = line['Input.text'].encode('UTF-8')
     positive = line['positive_label'].encode('UTF-8')
     negative = line['negative_label'].encode('UTF-8')
 
@@ -64,17 +64,15 @@ html = """
         var data = new google.visualization.DataTable();
           data.addColumn('string', 'Contributor');
           data.addColumn('number', 'Positive Label Accuracy');
-          data.addColumn('number', 'Negative Label Accuracy');
 
           data.addRows([
 """
 
 # the order is hardcoded because why not
-html += "['Roger', " + str(two_pos_correct) + ", " + str(two_neg_correct) + "],"
-html += "['Alice', " + str(one_pos_correct) + ", " + str(one_neg_correct) + "],"
-html += "['John', " + str(three_pos_correct) + ", " + str(three_neg_correct) + "],"
-html += "['Turker Majority', 67.91, 38.85],"
-html += "['Plurality Label Baseline', 62.75, 43.13]"
+html += "['Roger', " + str(two_pos_correct) + "],"
+html += "['Alice', " + str(one_pos_correct) + "],"
+html += "['John', " + str(three_pos_correct) + "],"
+html += "['Plurality Label Baseline', 62.75]"
 
 html += """
 
