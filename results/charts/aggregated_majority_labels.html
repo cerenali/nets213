@@ -1,0 +1,45 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Label');
+          data.addColumn('number', 'Tweet count');
+
+          data.addRows([
+['Friends', 155],['General Internet Community', 118],['Family', 11],['Specific Organization', 10],['Coworkers', 6]
+
+
+          ]);
+
+          var options = {
+            title: 'Number of Tweets Under Each Label After Majority Aggregation',
+            hAxis: {
+              title: 'Label'
+            },
+            vAxis: {
+              title: 'Count',
+              viewWindow: {
+                min: 0,
+                max: 180
+              }
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 700px; height: 500px"></div>
+  </body>
+</html>
+
