@@ -1,0 +1,46 @@
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Contributor');
+          data.addColumn('number', 'Positive Label Accuracy');
+          data.addColumn('number', 'Negative Label Accuracy');
+
+          data.addRows([
+['Majority', 67.91, 38.85],['', 100.0, 50.0],['', 100.0, 100.0],['', 100.0, 50.0],['', 100.0, 80.0],['', 100.0, 50.0],['', 93.33, 46.67],['', 83.33, 11.11],['', 80.0, 20.0],['', 80.0, 80.0],['', 77.78, 22.22],['', 75.0, 41.67],['', 72.0, 32.0],['', 71.43, 28.57],['', 70.0, 40.0],['', 66.67, 33.33],['', 66.67, 33.33],['', 66.67, 33.33],['', 66.67, 33.33],['', 66.67, 33.33],['', 66.67, 33.33],['', 65.0, 37.5],['', 61.11, 55.56],['', 55.56, 44.44],['', 50.0, 50.0],['', 50.0, 50.0],['', 50.0, 33.33],['', 50.0, 50.0],['', 50.0, 50.0],['', 50.0, 0.0],['', 50.0, 0.0],['', 50.0, 75.0],['', 50.0, 50.0],['', 46.67, 40.0],['', 33.33, 66.67],['', 0.0, 33.33],['Classifier', 68, 0],['Plurality Label Baseline', 62.75, 43.13]
+]);
+
+          var options = {
+            title: 'Worker Accuracy (compared against gold standard)',
+            hAxis: {
+              title: 'worker ID',
+              slantedText: true,
+              slantedTextAngle: 90
+            },
+            vAxis: {
+              title: '% correct',
+              viewWindow: {
+                min: 0,
+                max: 100
+              }
+            }
+          };
+
+          var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1200px; height: 500px"></div>
+  </body>
+</html>
+
