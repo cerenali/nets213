@@ -11,7 +11,7 @@
 
 # example : python generate_team_qc_chart_data.py <gold standard file> <quality control file> > <output file>
 
-# example : python generate_team_qc_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/full_batch/quality_control_HIT_out.csv > ../../results/charts/gold_vs_qc_chart.html
+# example : python generate_team_qc_chart_data.py ../../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../../data/full_batch/quality_control_HIT_out.csv > ../../../results/charts/gold_vs_qc_chart.html
 
 # author : a mysterious bumbledinger
 

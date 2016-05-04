@@ -6,9 +6,9 @@
 # output : calculates the performance of the contributor
 #   (by taking the number of labels that match the gold standard and
 #   dividing by total number of labels) and prints the HTML for the
-#   team performance chart to the console.
+#   team performance chart (including classifier results) to the console.
 
-# example : python generate_team_chart_data_with_classifier_results.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > team_performance_chart_with_classifier.html
+# example : python generate_team_chart_data_with_classifier_results.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/final_team_performance_chart_with_classifier.html
 
 # author : a mysterious bumbledinger
 

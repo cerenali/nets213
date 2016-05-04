@@ -10,7 +10,7 @@
 
 # example : python generate_team_chart_data.py <gold standard file> <alice file> <roger file> <john file> > <output file>
 
-# example : python generate_team_chart_data.py ../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../data/preliminary_analysis/alice_annotations.csv ../../data/preliminary_analysis/roger_annotations.csv ../../data/preliminary_analysis/john_annotations.csv > ../../results/charts/team_performance_chart.html
+# example : python generate_team_chart_data.py ../../../data/preliminary_analysis/50_tweet_gold_labels.csv ../../../data/preliminary_analysis/alice_annotations.csv ../../../data/preliminary_analysis/roger_annotations.csv ../../../data/preliminary_analysis/john_annotations.csv > ../../../results/charts/team_performance_chart.html
 
 # author : a mysterious bumbledinger
 
@@ -75,6 +75,7 @@ html = """
 html += "['Roger', " + str(two_pos_correct) + ", " + str(two_neg_correct) + "],"
 html += "['Alice', " + str(one_pos_correct) + ", " + str(one_neg_correct) + "],"
 html += "['John', " + str(three_pos_correct) + ", " + str(three_neg_correct) + "],"
+html += "['Quality Control Results', 76.0, 0],"
 html += "['Turker Majority', 67.91, 38.85],"
 html += "['Plurality Label Baseline', 62.75, 43.13]"
 
