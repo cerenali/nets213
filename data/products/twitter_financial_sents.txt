@@ -1,18 +1,6 @@
-r Shareholders,  We look forward to discussing our first quarter 2016 financial results with you at 2:00p.m.
-PT today.
 As a  reminder, to have your questions considered during Q&A, Tweet your question to @TwitterIR using  #TWTR or submit your question via Periscope.
 Thank you and we look forward to speaking with you  soon.
-OVERVIEW    Total revenue in the first quarter reached $595 million, up 36% year-over-year, with 30% adjusted  EBITDA margin.
-We saw a return to sequential growth in monthly active usage, driven by seasonality and  marketing initiatives.
-We also saw deepening engagement (likes, replies and Retweets) driven by a few  important product launches, including the enhancements to the timeline and the Twitter-Periscope  integration.
-We remain focused on disciplined execution to drive sustained audience growth over time.
-Revenue came in at the low end of our guidance range because brand marketers did not increase spend  as quickly as expected in the first quarter.
-We see a clear opportunity to increase our share of brand  budgets over time.
-r Shareholders,  We look forward to discussing our first quarter 2016 financial results with you at 2:00p.m.
-PT today.
-As a  reminder, to have your questions considered during Q&A, Tweet your question to @TwitterIR using  #TWTR or submit your question via Periscope.
-Thank you and we look forward to speaking with you  soon.
-OVERVIEW    Total revenue in the first quarter reached $595 million, up 36% year-over-year, with 30% adjusted  EBITDA margin.
+Total revenue in the first quarter reached $595 million, up 36% year-over-year, with 30% adjusted  EBITDA margin.
 We saw a return to sequential growth in monthly active usage, driven by seasonality and  marketing initiatives.
 We also saw deepening engagement (likes, replies and Retweets) driven by a few  important product launches, including the enhancements to the timeline and the Twitter-Periscope  integration.
 We remain focused on disciplined execution to drive sustained audience growth over time.
@@ -28,14 +16,13 @@ o Data licensing and other revenue totaled $64 million, an increase of 34% year-
 o U.S. revenue totaled $390 million, an increase of 35% year-over-year.
 o International revenue totaled $204 million, an increase of 39% year-over-year.
 Excluding  the impact of year-over-year changes in foreign exchange rates, international revenue  would have increased 46%.
-• Q1 GAAP net loss of $80 million and non-GAAP net income of $103 million.
-• Q1 GAAP diluted EPS of ($0.12) and non-GAAP diluted EPS of $0.15.
-• Q1 adjusted EBITDA of $180 million, up 73% year-over-year, representing an adjusted EBITDA  margin of 30%.
-2  • Average monthly active users (MAUs) were 310 million for Q1, up 3% year-over-year and  compared to 305 million in the previous quarter.
-• As a reminder, reported MAUs no longer include SMS Fast Followers.
+Q1 GAAP net loss of $80 million and non-GAAP net income of $103 million.
+Q1 GAAP diluted EPS of ($0.12) and non-GAAP diluted EPS of $0.15.
+Q1 adjusted EBITDA of $180 million, up 73% year-over-year, representing an adjusted EBITDA  margin of 30%.
+Average monthly active users (MAUs) were 310 million for Q1, up 3% year-over-year and  compared to 305 million in the previous quarter.
+As a reminder, reported MAUs no longer include SMS Fast Followers.
 We will continue to  employ strategies to grow and monetize SMS Fast Followers and will include them in our total  audience count, as we make those disclosures.
-• Mobile MAUs represented 83% of total MAUs.
-First Quarter 2016 Financial Summary  (In thousands, except per share data)  Three Months Ended  March 31,  2016 2015  GAAP Results  Revenue $ 594,521 $ 435,939  Net loss $ (79,731) $ (162,442)  Diluted net loss per share $ (0.12) $ (0.25)  Non-GAAP Results  Adjusted EBITDA $ 180,468 $ 104,053  Non-GAAP net income $ 102,723 $ 46,508  Non-GAAP diluted net income per share $ 0.15 $ 0.07    For additional information regarding the non-GAAP financial measures discussed in this letter, please  see "Non-GAAP Financial Measures" and "Reconciliation of GAAP to Non-GAAP Financial Measures"  below.
+Mobile MAUs represented 83% of total MAUs.
 A top 2016 priority is to recruit phenomenal talent to Twitter.
 This year we have already welcomed two  new leaders to our executive team.
 Along with our new CMO, Leslie Berland, we added Natalie Kerris as  our Vice President of Communications, giving us two world-class executives for functions that show the  world the value of Twitter.
@@ -58,7 +45,6 @@ Relentlessly refining Twitter will enable  more people to get more out of Twitte
 The enhanced timeline we launched this quarter is a great step forward, improving both speed and  relevance.
 For users with the new timeline, we’ve seen increases in Tweets, Retweets, replies, and likes,  a sign that it improves people’s experience on Twitter.
 Although people can still opt out if they wish, the  opt-out rate is extremely low (about 2%).
-Additionally, improvements we made to follow recommendations in the signup flow have driven a  significant increase in new follows (up approximately 48%) and mutual follows (up approximately 56%)  on average across both iOS and Android, and early data suggests it has increased log in days on  Android by roughly 2%.
 Over time, we believe this kind of deeper engagement can lead to more active  usage and greater retention.
 We also completely revamped our mobile logged-out experience to be more responsive and contentforward  this quarter.
 The result has been an almost 1% growth in time on site from logged-out mobile  users.
@@ -225,7 +211,6 @@ Audience  Total MAU was 310 million for the quarter, which compares favorably to
 Growth was driven by both seasonality and marketing initiatives.
 As a reminder, reported total MAU no longer includes SMS Fast Followers.
 We will continue to employ  strategies to grow and monetize SMS Fast Followers and will include them in our total audience count,  as we make those disclosures.
-OUTLOOK  For Q2, we expect:  • Revenue to be in the range of $590 to $610 million;  • Adjusted EBITDA to be in the range of $145 to $155 million;  • Stock-based compensation expense to be in the range of $165 to $175 million;  • GAAP share count to be in the range of 700 to 705 million shares;  • Non-GAAP share count to be in the range of 710 to 720 million shares.
 For FY 2016, we expect:  • Capital expenditures to be $300 to $425 million;  • Adjusted EBITDA margin in the range of 25-27%.
 Note that our outlook for Q2 and full year of 2016 reflects foreign exchange rates as of April 15, 2016.
 APPENDIX  Webcast and Conference Call Details  Twitter will host a conference call and Periscope broadcast today, Tuesday, April 26, 2016, at 2:00 p.m.  Pacific Time (5:00 p.m. Eastern Time) to discuss financial results.
@@ -242,11 +227,8 @@ For more information, visit about.twitter.com or follow @twitter.
 Forward Looking Statements  This letter to shareholders contains forward-looking statements within the meaning of Section 27A of the  Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934.
 Forward-looking  statements generally relate to future events or Twitter's future financial or operating performance.
 In  some cases, you can identify forward-looking statements because they contain words such as "may,"  "will," "should," "expects," "plans," "anticipates,” “going to,” "could," "intends," "target," "projects,"  "contemplates," "believes," "estimates," "predicts," "potential" or "continue" or the negative of these  words or other similar terms or expressions that concern Twitter's expectations, strategy, priorities,  plans or intentions.
-Forward-looking statements in this letter to shareholders include, but are not limited  to, Twitter's strategies, product and business plans, the development of, investment in and demand for  its products, product features and services, including video, expectations regarding the growth of its  monthly active users and total audience, advertiser base and spending and ad engagements, Twitter's  expectations regarding its revenue, adjusted EBITDA, stock-based compensation expense and GAAP  and non-GAAP share count for the second quarter 2016 and regarding its capital expenditures and  adjusted EBITDA margin for full year 2016.
 Twitter's expectations and beliefs regarding these matters  may not materialize, and actual results in future periods are subject to risks and uncertainties that could  cause actual results to differ materially from those projected.
 These risks include the possibility that:  Twitter's user base and engagement do not grow or decline; Twitter’s strategies, priorities or plans take  longer to execute than anticipated; Twitter's new products and product features do not meet  expectations; advertisers reduce or discontinue their spending on Twitter; data partners reduce or  discontinue their purchases of data licenses from Twitter; and Twitter experiences expenses that exceed  its expectations.
 The forward-looking statements contained in this letter to shareholders are also subject  to other risks and uncertainties, including those more fully described in Twitter's Annual Report on Form  10-K for the fiscal year ended December 31, 2015 filed with the Securities and Exchange Commission.
 Additional information will also be set forth in Twitter's Quarterly Report on Form 10-Q for the quarter  ended March 31, 2016.
 The forward-looking statements in this letter to shareholders are based on  information available to Twitter as of the date hereof, and Twitter disclaims any obligation to update any  forward-looking statements, except as required by law.
-Non-GAAP Financial Measures  To supplement Twitter's financial information presented in accordance with generally accepted  accounting principles in the United States, or GAAP, Twitter considers certain financial measures that  are not prepared in accordance with GAAP, including revenue excluding foreign exchange effect,  advertising revenue excluding foreign exchange effect, adjusted EBITDA, non-GAAP net income, nonGAAP  expenses, adjusted EBITDA margin, non-GAAP diluted EPS and free cash flow.
-Twitter defines  adjusted EBITDA as net loss adjusted to exclude stock-based compensation expense, depreciation and  amortization expense, interest and other expenses, net, provision (benefit) for income taxes, and  restructuring charges; Twitter defines non-GAAP net income as net loss adjusted to exclude stockbased  compensation expense, amortization of acquired intangible assets, non-cash interest expense   12  related to convertible notes, non-cash expense related to acquisitions, the income tax effects related to  acquisitions, and restructuring charges; and Twitter defines non-GAA
